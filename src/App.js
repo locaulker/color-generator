@@ -14,7 +14,7 @@ function App() {
     try {
       let colors = new Values(color).all(10)
       setList(colors)
-      // console.log(colors)
+      console.log(colors)
     } catch (error) {
       setError(true)
       console.log(error)
@@ -40,8 +40,14 @@ function App() {
       </section>
       <section className="colors">
         {list.map((color, index) => {
-          // console.log(color)
-          return <SingleColor key={index} {...color} index={index} />
+          return (
+            <SingleColor
+              key={index}
+              hexColor={color.hex}
+              {...color}
+              index={index}
+            />
+          )
         })}
       </section>
     </>
